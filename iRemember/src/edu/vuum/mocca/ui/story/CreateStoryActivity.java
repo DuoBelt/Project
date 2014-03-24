@@ -232,7 +232,7 @@ public class CreateStoryActivity extends StoryActivityBase {
 	private void launchSoundIntent() {
 		
 // TODO - Create a new intent to launch the SoundRecordActivity activity
-		Intent soundActivityIntent = new Intent(CreateStoryActivity.this, SoundRecordActivity.class);
+		Intent soundActivityIntent = new Intent(this , SoundRecordActivity.class);
 		
 // TODO - Use getOutputMediaFile() to create a new 
 		// filename for this specific sound file
@@ -255,16 +255,15 @@ public class CreateStoryActivity extends StoryActivityBase {
 // TODO - Create a new intent to launch the MediaStore, Image capture function
 		// Hint: use standard Intent from MediaStore class
 		// See: http://developer.android.com/reference/android/provider/MediaStore.html
-  Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+  Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
 		
 // TODO - Set the imagePath for this image file using the pre-made function
 		// getOutputMediaFile to create a new filename for this specific image;
-     Uri imagePathUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
-	 fragment.imagePath = imagePathUri;
+  fragment.imagePath = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
 		
 // TODO - Add the filename to the Intent as an extra. Use the Intent-extra name
 		// from the MediaStore class, EXTRA_OUTPUT
-		cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imagePathUri);
+		cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, fragment.imagePath);
 		
 // TODO - Start a new activity for result, using the new intent and the request
 		// code CAMERA_PIC_REQUEST
