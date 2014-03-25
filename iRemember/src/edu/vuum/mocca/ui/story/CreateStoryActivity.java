@@ -206,7 +206,7 @@ public class CreateStoryActivity extends StoryActivityBase {
 			}
 		}
 
-		// Create a media file name
+		// Create a media file name, problem with path name
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US)
 				.format(new Date());
 		File mediaFile;
